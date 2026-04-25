@@ -48,8 +48,8 @@ losetup -a | grep luks_test.img
 # шифрование раздела
 sudo cryptsetup luksFormat /dev/loop0
 sudo cryptsetup luksOpen /dev/loop0 luks_vault
-sudo cryptsetup luksOpen /dev/loop0 luks_vault
 # монтирование
+sudo mkfs.ext4 /dev/mapper/luks_vault
 sudo mkdir -p /mnt/luks_test
 sudo mount /dev/mapper/luks_vault /mnt/luks_test
 ```
